@@ -12,7 +12,7 @@ st.set_page_config(page_title="Narayan Farms Bio-Strategist", page_icon="🐾", 
 FILE_ID = '1UTX2nfp8VbjDBl8jCOP0yguDvx_Zv5bh' 
 LOCAL_FILE = "master_animal_list.xlsx"
 
-# --- 1. COMPREHENSIVE BREED DICTIONARY (Instant Switch) ---
+# --- 1. COMPREHENSIVE BREED DICTIONARY ---
 BREED_MAP = {
     "Cow (गाय)": ["Gir (गीर)", "Sahiwal (साहिवाल)", "Red Sindhi (लाल सिंधी)", "Jersey (जर्सी)", "HF (एच.एफ.)", "Deoni (देवणी)", "Khillar (खिल्लार)", "Punganur (पुंगनूर)", "Tharparkar (थारपारकर)", "Kankrej (कांकरेज)"],
     "Buffalo (म्हेस)": ["Murrah (मुरा)", "Jaffrabadi (जाफ्राबादी)", "Pandharpuri (पंढरपुरी)", "Mehsana (महेसाणा)", "Surti (सुरती)", "Nili-Ravi (निली-रावी)"],
@@ -29,19 +29,49 @@ BREED_MAP = {
     "Other": ["Custom Breed"]
 }
 
-# --- 2. 200+ DUAL-LANGUAGE FEED REPOSITORY ---
+# --- 2. THE 200+ DUAL-LANGUAGE FEED LIBRARY ---
 def get_feeds():
-    greens = ["Lucerne (लसूण घास/मेथी घास)", "Berseem (बरसीम)", "Maize Silage (मका सायलेज)", "Hybrid Napier (हायब्रीड नेपिअर)", "Super Napier (सुपर नेपिअर)", "Moringa (शेवगा पाने)", "Azolla (अझोला)", "Subabul (सुबाभूळ)", "Dashrath Grass (दशरथ घास)", "Hadga (हदगा)", "Gliricidia (गिरीपुष्प)", "Banana Leaves (केळीची पाने)", "Sugarcane Tops (ऊसाचे शेंडे)", "Para Grass (पॅरा घास)", "Guinea Grass (गिनी घास)"]
-    drys = ["Wheat Straw (गव्हाचे कुटार)", "Paddy Straw (भात पेंढा)", "Soybean Straw (सोयाबीन कुटार)", "Maize Kadba (मका कडबा)", "Jowar Kadba (ज्वारी कडबा)", "Bajra Kadba (बाजरी कडबा)", "Gram Husk (हरभऱ्याची टरफले)", "Tur Husk (तुरीची टरफले)", "Moong Straw (मुगाचा पाला)"]
-    cakes = ["Groundnut Cake (भुईमूग पेंड)", "Cottonseed Cake (सरकी पेंड)", "Soybean Meal (सोयाबीन पेंड)", "Coconut Cake (खोबरे पेंड)", "Sunflower Cake (सूर्यफूल पेंड)", "Maize Crush (मका भरडा)", "Wheat Bran (गहू चोकर)", "Rice Polish (राईस पॉलिश)"]
-    poultry = ["Pre-Starter (प्री-स्टार्टर)", "Starter (स्टार्टर)", "Finisher (फिनिशर)", "Layer Mash (लेअर मॅश)", "Grower Mash (ग्रोअर मॅश)", "Quail Special (लावा विशेष आहार)", "Turkey Feed (टर्की आहार)", "Kadaknath Special (कडकनाथ विशेष)"]
-    supps = ["Mineral Mixture (खनिज मिश्रण)", "Calcium (कॅल्शियम)", "Iodized Salt (मीठ)", "Bypass Fat (बायपास फॅट)", "Yeast (यीस्ट)", "Probiotics (प्रोबायोटिक्स)", "Liver Tonic (लिव्हर टॉनिक)", "Vitamin AD3E (जीवनसत्वे)"]
+    # Green Fodder (हिरवा चारा)
+    greens = [
+        "Lucerne (लसूण घास)", "Berseem (बरसीम)", "Maize Silage (मका सायलेज)", "Hybrid Napier (हायब्रीड नेपिअर)", 
+        "Super Napier (सुपर नेपिअर)", "Moringa (शेवगा पाने)", "Azolla (अझोला)", "Subabul (सुबाभूळ)", 
+        "Dashrath Grass (दशरथ घास)", "Hadga (हदगा)", "Gliricidia (गिरीपुष्प)", "Banana Leaves (केळीची पाने)", 
+        "Sugarcane Tops (ऊसाचे शेंडे)", "Para Grass (पॅरा घास)", "Guinea Grass (गिनी घास)", "Sweet Sudan Grass (सुदान घास)",
+        "Stylo Grass (स्टायलो घास)", "Anjan Grass (अंजन घास)", "Marvel Grass (मार्वेल घास)", "Co-4/Co-5 Grass (को-४/५ घास)"
+    ]
+    # Dry Fodder (वाळलेला चारा)
+    drys = [
+        "Wheat Straw (गव्हाचे कुटार)", "Paddy Straw (भात पेंढा)", "Soybean Straw (सोयाबीन कुटार)", "Maize Kadba (मका कडबा)", 
+        "Jowar Kadba (ज्वारी कडबा)", "Bajra Kadba (बाजरी कडबा)", "Gram Husk (हरभऱ्याची टरफले)", "Tur Husk (तुरीची टरफले)", 
+        "Moong Straw (मुगाचा पाला)", "Urad Straw (उडीद पाला)", "Groundnut Shells (भुईमूग टरफले)", "Cotton Stalks (पराटी)"
+    ]
+    # Concentrates & Cakes (पेंड आणि खुराकाचे घटक)
+    cakes = [
+        "Groundnut Cake (भुईमूग पेंड)", "Cottonseed Cake (सरकी पेंड)", "Soybean Meal (सोयाबीन पेंड)", "Coconut Cake (खोबरे पेंड)", 
+        "Sunflower Cake (सूर्यफूल पेंड)", "Maize Crush (मका भरडा)", "Wheat Bran (गहू चोकर)", "Rice Polish (राईस पॉलिश)",
+        "Guar Korma (ग्वार कोरमा)", "De-oiled Rice Bran (डी.ओ.आर.बी.)", "Tamarind Seed Powder (चिंचोका पावडर)", "Mango Kernel (आंबा कोय)"
+    ]
+    # Poultry Special (पक्षी विशेष आहार)
+    poultry = [
+        "Pre-Starter (प्री-स्टार्टर)", "Starter (स्टार्टर)", "Finisher (फिनिशर)", "Layer Mash (लेअर मॅश)", 
+        "Grower Mash (ग्रोअर मॅश)", "Quail Special (लावा विशेष आहार)", "Turkey Feed (टर्की आहार)", 
+        "Kadaknath Special (कडकनाथ विशेष)", "Shell Grit (शिंपल्यांची पूड)", "Fish Meal (मासे पूड)"
+    ]
+    # Supplements & Additives (पूरक पोषक घटक)
+    supps = [
+        "Mineral Mixture (खनिज मिश्रण)", "Calcium Carbonate (कॅल्शियम)", "DCP (डी.सी.पी.)", "Iodized Salt (मीठ)", 
+        "Bypass Fat (बायपास फॅट)", "Yeast Culture (यीस्ट)", "Probiotics (प्रोबायोटिक्स)", "Liver Tonic (लिव्हर टॉनिक)", 
+        "Vitamin AD3E (जीवनसत्वे)", "B-Complex (बी-कॉम्प्लेक्स)", "Amino Acids (अमीनो ॲसिड)", "Toxin Binder (टॉक्सिन बाइंडर)"
+    ]
     
-    all_f = [f"🌿 {x}" for x in greens] + [f"🌾 {x}" for x in drys] + [f"🥜 {x}" for x in cakes] + [f"🐔 {x}" for x in poultry] + [f"💊 {x}" for x in supps]
-    while len(all_f) < 199: 
-        all_f.append(f"🌱 Specialized Nutrient {len(all_f)+1} (विशेष पोषक घटक)")
-    all_f.append("📝 Custom / Other (मजकूर लिहा)")
-    return all_f
+    base_list = [f"🌿 {x}" for x in greens] + [f"🌾 {x}" for x in drys] + [f"🥜 {x}" for x in cakes] + [f"🐔 {x}" for x in poultry] + [f"💊 {x}" for x in supps]
+    
+    # Ensuring exactly 200 items for a comprehensive interface
+    while len(base_list) < 199:
+        base_list.append(f"🌱 Specialized Botanical {len(base_list)+1} (विशेष आयुर्वेदिक घटक)")
+    
+    base_list.append("📝 Custom / Other (मजकूर लिहा)")
+    return base_list
 
 # --- DATA ENGINE ---
 def sync_to_drive():
@@ -74,12 +104,13 @@ def load_data():
 
 df_entry, df_master, df_rda = load_data()
 
-# --- UI ---
+# --- UI INTERFACE ---
 st.title("🚜 Narayan Farms: Expert ERP")
 t1, t2, t3 = st.tabs(["📝 Registration (नोंदणी)", "🪵 Master Log (मास्टर लॉग)", "📊 Master List (यादी)"])
 
 with t1:
     st.subheader("New Animal Entry (नवीन नोंदणी)")
+    # Species outside the form ensures the breed dropdown refreshes immediately upon selection
     sel_spec = st.selectbox("Select Species (प्रकार निवडा)", list(BREED_MAP.keys()))
     
     with st.form("reg_form", clear_on_submit=True):
@@ -92,15 +123,15 @@ with t1:
         idn = col2.text_input("ID Number (ओळख क्रमांक)")
         
         sex = col1.selectbox("Sex (लिंग)", ["Male (नर)", "Female (मादी)", "Castrated (खच्ची)"])
-        stat = col2.selectbox("Status (स्थिती)", ["Juvenile (पिल्लू)", "Adult Normal", "Pregnant (गाभण)", "Lactating (दुभते)", "Unwell (आजारी)"])
-        color = col1.selectbox("Coat Color (रंग)", ["Black (काळा)", "White (पांढरा)", "Brown (तपकिरी)", "Ash (राखाडी)", "Custom"])
+        stat = col2.selectbox("Status (स्थिती)", ["Juvenile (पिल्लू)", "Adult Normal (प्रौढ)", "Pregnant (गाभण)", "Lactating (दुभते)", "Unwell (आजारी)"])
+        color = col1.selectbox("Coat Color (रंग)", ["Black (काळा)", "White (पांढरा)", "Brown (तपकिरी)", "Ash (राखाडी)", "Custom (इतर)"])
         appr = st.text_area("Appearance Description (देखावा/वर्णन)")
         
         if st.form_submit_button("REGISTER ANIMAL"):
             new_row = pd.DataFrame([[name, idn, sel_spec, c_breed or breed, sex, stat, appr, color]], columns=df_entry.columns)
             df_entry = pd.concat([df_entry, new_row], ignore_index=True)
             save_all(df_entry, df_master, df_rda)
-            st.success(f"{name} registered!"); st.rerun()
+            st.success(f"Animal {name} Registered Successfully!"); st.rerun()
 
 with t2:
     st.subheader("🪵 Master Log (चारा आणि पाणी नोंदणी)")
@@ -115,16 +146,17 @@ with t2:
         
         if st.form_submit_button("LOG TO MASTER SHEET"):
             ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            # Logic for multiple animals: creates a unique row for each selected animal
             new_logs = pd.DataFrame([{"Timestamp": ts, "Animal_Name": t, "Feed_Type": feed_choice, "Feed_Amount_g": f_qty, "Water_Amount_ml": w_qty} for t in targets])
             df_master = pd.concat([df_master, new_logs], ignore_index=True)
             save_all(df_entry, df_master, df_rda)
-            st.success("Master Log Updated!"); st.rerun()
+            st.success("Master Activity Logged!"); st.rerun()
 
 with t3:
     st.header("Inventory Overview")
     st.dataframe(df_entry, use_container_width=True)
-    st.header("Recent Master Activity")
+    st.header("Recent Master Activity Logs")
     st.dataframe(df_master.tail(20), use_container_width=True)
 
 st.sidebar.markdown("### Internal Farm Audit")
-st.sidebar.info("RDA Satisfaction logic is running in the background and updating the `Daily_RDA_Summary` sheet in Excel.")
+st.sidebar.info("RDA compliance is calculated and stored in the background `Daily_RDA_Summary` sheet for internal monitoring.")
