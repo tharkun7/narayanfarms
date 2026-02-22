@@ -46,20 +46,39 @@ def load_master_data():
     except:
         return pd.DataFrame(columns=["Name", "Species", "Breed", "Last_Feed", "Feed_Qty_g", "Water_Qty_ml"])
 
+
 def sync_to_drive():
     try:
+        # REPLACE THIS with the ID from your browser URL
+        FOLDER_ID = '1UTX2nfp8VbjDBl8jCOP0yguDvx_Zv5bh' 
+        
         creds_info = st.secrets["gcp_service_account"]
         creds = service_account.Credentials.from_service_account_info(creds_info)
         service = build('drive', 'v3', credentials=creds)
+        
+        # Define the file metadata to force it into your folder
+        file_metadata = {
+            'name': LOCAL_FILE,
+            'parents': [FOLDER_ID]
+        }
+        
         media = MediaFileUpload(LOCAL_FILE, mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-        results = service.files().list(q=f"name='{LOCAL_FILE}'").execute()
+        
+        # Check if file exists in THAT specific folder
+        query = f"name='{LOCAL_FILE}' and '{FOLDER_ID}' in parents and trashed=false"
+        results = service.files().list(q=query, spaces='drive').execute()
         items = results.get('files', [])
+
         if not items:
-            service.files().create(body={'name': LOCAL_FILE}, media_body=media).execute()
+            # Create new file in your folder
+            service.files().create(body=file_metadata, media_body=media, fields='id').execute()
         else:
+            # Update the existing file
             service.files().update(fileId=items[0]['id'], media_body=media).execute()
+        return True
     except Exception as e:
-        st.sidebar.warning(f"Sync: {e}")
+        st.sidebar.error(f"Sync Error: {e}")
+        return False
 
 # --- UI ---
 st.title("🚜 Narayan Farms: Expert Bio-Strategist")
@@ -125,3 +144,4 @@ with tab3:
     st.subheader("पोषण तक्ता (Library)")
     lib = get_mega_library()
     st.dataframe(lib, use_container_width=True)
+
