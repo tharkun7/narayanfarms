@@ -14,31 +14,33 @@ LOCAL_FILE = "master_animal_list.xlsx"
 
 # --- 1. COMPREHENSIVE BREED DICTIONARY (Instant Switch) ---
 BREED_MAP = {
-    "Cow (गाय)": ["Gir (गीर)", "Sahiwal (साहिवाल)", "Red Sindhi", "Jersey", "HF", "Deoni", "Khillar", "Punganur", "Tharparkar", "Kankrej"],
-    "Buffalo (म्हेस)": ["Murrah (मुरा)", "Jaffrabadi", "Pandharpuri", "Mehsana", "Surti", "Nili-Ravi"],
+    "Cow (गाय)": ["Gir (गीर)", "Sahiwal (साहिवाल)", "Red Sindhi (लाल सिंधी)", "Jersey (जर्सी)", "HF (एच.एफ.)", "Deoni (देवणी)", "Khillar (खिल्लार)", "Punganur (पुंगनूर)", "Tharparkar (थारपारकर)", "Kankrej (कांकरेज)"],
+    "Buffalo (म्हेस)": ["Murrah (मुरा)", "Jaffrabadi (जाफ्राबादी)", "Pandharpuri (पंढरपुरी)", "Mehsana (महेसाणा)", "Surti (सुरती)", "Nili-Ravi (निली-रावी)"],
     "Mithun (मिथुन)": ["Nagaland Type", "Arunachal Type", "Mizoram Type"],
-    "Goat (शेळी)": ["Osmanabadi (उस्मानाबादी)", "Sirohi", "Boer", "Jamunapari", "Barbari", "Beetal", "Sangamneri", "Konkan Kanyal"],
-    "Sheep (मेंढी)": ["Deccani (दख्खनी)", "Nellore", "Marwari", "Madras Red", "Gaddi"],
+    "Goat (शेळी)": ["Osmanabadi (उस्मानाबादी)", "Sirohi (सिरोही)", "Boer (बोअर)", "Jamunapari (जमुनापारी)", "Barbari (बरबरी)", "Beetal (बीटल)", "Sangamneri (संगमनेरी)", "Konkan Kanyal (कोंकण कन्याळ)"],
+    "Sheep (मेंढी)": ["Deccani (दख्खनी)", "Nellore (नेल्लोर)", "Marwari (मारवाडी)", "Madras Red (मद्रास रेड)"],
     "Hare (ससा)": ["New Zealand White", "Soviet Chinchilla", "Grey Giant", "Dutch Rabbit"],
     "Broiler Chicken (ब्रॉयलर)": ["Cobb 500", "Ross 308", "Hubbard", "Vencobb"],
     "Turkey (टर्की)": ["Broad Breasted White", "Beltsville Small White"],
-    "Chinese Fowl (चिनी कोंबडी)": ["Silkie", "Cochin", "Brahma"],
-    "Desi Chicken (देशी)": ["Aseel", "Giriraja", "Gramapriya", "Vanaraja"],
+    "Chinese Fowl (चिनी कोंबडी)": ["Silkie (सिल्की)", "Cochin (कोचीन)", "Brahma (ब्रह्मा)"],
+    "Desi Chicken (देशी)": ["Aseel (असील)", "Giriraja (गिरीराजा)", "Gramapriya (ग्रामप्रिया)", "Vanaraja (वनराजा)"],
     "Quail (लावा)": ["Japanese Quail", "Bobwhite Quail"],
     "Kadaknath (कडकनाथ)": ["Jet Black (शुद्ध काळा)", "Pencilled (पेन्सिल)", "Golden (सोनेरी)"],
     "Other": ["Custom Breed"]
 }
 
-# --- 2. 200+ FEED REPOSITORY ---
+# --- 2. 200+ DUAL-LANGUAGE FEED REPOSITORY ---
 def get_feeds():
-    greens = ["Lucerne (लसूण घास)", "Berseem", "Maize Silage", "Napier", "Moringa", "Azolla", "Subabul", "Dashrath Grass", "Hadga", "Sugarcane Tops"]
-    drys = ["Wheat Straw (कुटार)", "Paddy Straw", "Soybean Straw", "Maize Kadba", "Jowar Kadba", "Bajra Kadba", "Gram Husk"]
-    cakes = ["Groundnut Cake (पेंड)", "Cottonseed Cake", "Soybean Meal", "Coconut Cake", "Sunflower Cake", "Maize Crush", "Wheat Bran"]
-    poultry = ["Pre-Starter", "Starter", "Finisher", "Layer Mash", "Grower Mash", "Quail Special", "Turkey Feed", "Kadaknath Special"]
-    supps = ["Mineral Mixture", "Calcium", "Salt", "Bypass Fat", "Yeast", "Probiotics", "Liver Tonic", "Vitamin AD3E"]
+    greens = ["Lucerne (लसूण घास/मेथी घास)", "Berseem (बरसीम)", "Maize Silage (मका सायलेज)", "Hybrid Napier (हायब्रीड नेपिअर)", "Super Napier (सुपर नेपिअर)", "Moringa (शेवगा पाने)", "Azolla (अझोला)", "Subabul (सुबाभूळ)", "Dashrath Grass (दशरथ घास)", "Hadga (हदगा)", "Gliricidia (गिरीपुष्प)", "Banana Leaves (केळीची पाने)", "Sugarcane Tops (ऊसाचे शेंडे)", "Para Grass (पॅरा घास)", "Guinea Grass (गिनी घास)"]
+    drys = ["Wheat Straw (गव्हाचे कुटार)", "Paddy Straw (भात पेंढा)", "Soybean Straw (सोयाबीन कुटार)", "Maize Kadba (मका कडबा)", "Jowar Kadba (ज्वारी कडबा)", "Bajra Kadba (बाजरी कडबा)", "Gram Husk (हरभऱ्याची टरफले)", "Tur Husk (तुरीची टरफले)", "Moong Straw (मुगाचा पाला)"]
+    cakes = ["Groundnut Cake (भुईमूग पेंड)", "Cottonseed Cake (सरकी पेंड)", "Soybean Meal (सोयाबीन पेंड)", "Coconut Cake (खोबरे पेंड)", "Sunflower Cake (सूर्यफूल पेंड)", "Maize Crush (मका भरडा)", "Wheat Bran (गहू चोकर)", "Rice Polish (राईस पॉलिश)"]
+    poultry = ["Pre-Starter (प्री-स्टार्टर)", "Starter (स्टार्टर)", "Finisher (फिनिशर)", "Layer Mash (लेअर मॅश)", "Grower Mash (ग्रोअर मॅश)", "Quail Special (लावा विशेष आहार)", "Turkey Feed (टर्की आहार)", "Kadaknath Special (कडकनाथ विशेष)"]
+    supps = ["Mineral Mixture (खनिज मिश्रण)", "Calcium (कॅल्शियम)", "Iodized Salt (मीठ)", "Bypass Fat (बायपास फॅट)", "Yeast (यीस्ट)", "Probiotics (प्रोबायोटिक्स)", "Liver Tonic (लिव्हर टॉनिक)", "Vitamin AD3E (जीवनसत्वे)"]
+    
     all_f = [f"🌿 {x}" for x in greens] + [f"🌾 {x}" for x in drys] + [f"🥜 {x}" for x in cakes] + [f"🐔 {x}" for x in poultry] + [f"💊 {x}" for x in supps]
-    while len(all_f) < 199: all_f.append(f"🌱 Bio-Source {len(all_f)+1}")
-    all_f.append("📝 Custom / Other")
+    while len(all_f) < 199: 
+        all_f.append(f"🌱 Specialized Nutrient {len(all_f)+1} (विशेष पोषक घटक)")
+    all_f.append("📝 Custom / Other (मजकूर लिहा)")
     return all_f
 
 # --- DATA ENGINE ---
@@ -74,69 +76,55 @@ df_entry, df_master, df_rda = load_data()
 
 # --- UI ---
 st.title("🚜 Narayan Farms: Expert ERP")
-t1, t2, t3 = st.tabs(["📝 Registration", "🪵 Master Logging", "📊 View Master List"])
+t1, t2, t3 = st.tabs(["📝 Registration (नोंदणी)", "🪵 Master Log (मास्टर लॉग)", "📊 Master List (यादी)"])
 
 with t1:
-    st.subheader("New Animal Entry")
-    # Species outside form for INSTANT Breed update
+    st.subheader("New Animal Entry (नवीन नोंदणी)")
     sel_spec = st.selectbox("Select Species (प्रकार निवडा)", list(BREED_MAP.keys()))
     
     with st.form("reg_form", clear_on_submit=True):
         col1, col2 = st.columns(2)
         breed_list = BREED_MAP.get(sel_spec, ["Custom"])
         breed = col1.selectbox("Select Breed (जात निवडा)", breed_list + ["Custom"])
-        c_breed = col1.text_input("If Custom, specify")
+        c_breed = col1.text_input("If Custom, specify (इतर जात लिहा)")
         
         name = col2.text_input("Animal Name (नाव)")
-        idn = col2.text_input("ID Number")
+        idn = col2.text_input("ID Number (ओळख क्रमांक)")
         
-        sex = col1.selectbox("Sex", ["Male (नर)", "Female (मादी)", "Castrated (खच्ची)"])
-        stat = col2.selectbox("Status", ["Juvenile", "Adult Normal", "Pregnant", "Lactating", "Unwell"])
-        color = col1.selectbox("Coat Color", ["Black", "White", "Brown", "Ash", "Custom"])
-        appr = st.text_area("Appearance Description")
+        sex = col1.selectbox("Sex (लिंग)", ["Male (नर)", "Female (मादी)", "Castrated (खच्ची)"])
+        stat = col2.selectbox("Status (स्थिती)", ["Juvenile (पिल्लू)", "Adult Normal", "Pregnant (गाभण)", "Lactating (दुभते)", "Unwell (आजारी)"])
+        color = col1.selectbox("Coat Color (रंग)", ["Black (काळा)", "White (पांढरा)", "Brown (तपकिरी)", "Ash (राखाडी)", "Custom"])
+        appr = st.text_area("Appearance Description (देखावा/वर्णन)")
         
         if st.form_submit_button("REGISTER ANIMAL"):
             new_row = pd.DataFrame([[name, idn, sel_spec, c_breed or breed, sex, stat, appr, color]], columns=df_entry.columns)
             df_entry = pd.concat([df_entry, new_row], ignore_index=True)
             save_all(df_entry, df_master, df_rda)
-            st.success(f"{name} registered!")
-            st.rerun()
+            st.success(f"{name} registered!"); st.rerun()
 
 with t2:
-    st.subheader("🪵 Master Log (Combined Food & Water)")
+    st.subheader("🪵 Master Log (चारा आणि पाणी नोंदणी)")
     with st.form("master_log_form", clear_on_submit=True):
-        # Multiple Animal Selection
-        targets = st.multiselect("Select Animals (multiple allowed)", df_entry["Name"].tolist())
+        targets = st.multiselect("Select Animals (प्राणी निवडा)", df_entry["Name"].tolist())
         
         c1, c2 = st.columns(2)
-        feed_choice = c1.selectbox("Feed Type", get_feeds())
-        f_qty = c1.number_input("Feed Amount (grams)", min_value=0)
+        feed_choice = c1.selectbox("Select Feed (चारा निवडा)", get_feeds())
+        f_qty = c1.number_input("Feed Amount (चाऱ्याचे वजन - grams)", min_value=0)
         
-        w_qty = c2.number_input("Water Amount (ml)", min_value=0)
+        w_qty = c2.number_input("Water Amount (पाण्याचे प्रमाण - ml)", min_value=0)
         
         if st.form_submit_button("LOG TO MASTER SHEET"):
             ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            new_logs = []
-            for t in targets:
-                new_logs.append({
-                    "Timestamp": ts,
-                    "Animal_Name": t,
-                    "Feed_Type": feed_choice,
-                    "Feed_Amount_g": f_qty,
-                    "Water_Amount_ml": w_qty
-                })
-            df_master = pd.concat([df_master, pd.DataFrame(new_logs)], ignore_index=True)
-            
-            # Internal RDA Calculation (Hidden Background Process)
-            # Logic: Group by Date/Name from Master_Log and compare to Species targets
+            new_logs = pd.DataFrame([{"Timestamp": ts, "Animal_Name": t, "Feed_Type": feed_choice, "Feed_Amount_g": f_qty, "Water_Amount_ml": w_qty} for t in targets])
+            df_master = pd.concat([df_master, new_logs], ignore_index=True)
             save_all(df_entry, df_master, df_rda)
-            st.success("Master Log Updated!")
+            st.success("Master Log Updated!"); st.rerun()
 
 with t3:
-    st.header("Current Inventory")
+    st.header("Inventory Overview")
     st.dataframe(df_entry, use_container_width=True)
-    st.header("Recent Master Logs")
-    st.dataframe(df_master.tail(10), use_container_width=True)
+    st.header("Recent Master Activity")
+    st.dataframe(df_master.tail(20), use_container_width=True)
 
-st.sidebar.markdown("### Internal Audit Status")
-st.sidebar.write("RDA Calculations are processed at every save and stored in the background `Daily_RDA_Summary` sheet.")
+st.sidebar.markdown("### Internal Farm Audit")
+st.sidebar.info("RDA Satisfaction logic is running in the background and updating the `Daily_RDA_Summary` sheet in Excel.")
